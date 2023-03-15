@@ -1,7 +1,8 @@
 var uuid = require('uuid-random');
 const WebSocket = require('ws')
+const PORT = process.env.PORT || 3000
 
-const wss = new WebSocket.WebSocketServer({port:443}, ()=> {
+const wss = new WebSocket.WebSocketServer({port: PORT}, ()=> {
 	console.log('server started')
 })
 
@@ -34,7 +35,7 @@ wss.on('connection', function connection(client){
 })
 
 wss.on('listening', () => {
-	console.log('listening on 8080')
+	console.log('listening on ' + PORT)
 })
 
 
